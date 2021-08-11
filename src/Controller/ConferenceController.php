@@ -20,9 +20,7 @@ class ConferenceController extends AbstractController
         $this->twig = $twig;
     }
 
-    /**
-     * @Route("/", name="homepage")
-     */
+    #[Route('/', name: 'homepage')]
     public function index(ConferenceRepository $conferenceRepository): Response
     {
         return new Response($this->twig->render('conference/index.html.twig', [
@@ -30,9 +28,7 @@ class ConferenceController extends AbstractController
         ]));
     }
 
-    /**
-     * @Route("/conference/{id}", name="conference")
-     */
+    #[Route('/conference/{id}', name: 'conference')]
     public function show(
         Request $request,
         Conference $conference,
